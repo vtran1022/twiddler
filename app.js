@@ -55,25 +55,29 @@ $(document).ready(function(){
       // create new HTML elements within Tweet div
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png"></img>');
       var $username = $('<span class="username"> @' + tweet.user + '</span>');
-
       var $message = $('<p class ="message">' + tweet.message + '</p>');
+
       var time = jQuery.timeago(tweet.created_at);
       var $timestamp = $('<span class="timestamp">' + time + '</span>');
 
+      var $icon = $('<span id="icon-container"></span>');
       var $comment = $('<i class="icon comment fas fa-comment-dots"></i>');
       var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
       var $like = $('<i class="icon like fas fa-heart"></i>');
       var $share = $('<i class="icon share fas fa-share-square"></i>');
+
+      // Append icons to icon container
+      $comment.appendTo($icon);
+      $retweet.appendTo($icon);
+      $like.appendTo($icon);
+      $share.appendTo($icon);
 
       // Append new HTML elements within Tweet div
       $profilePhoto.appendTo($tweet);
       $username.appendTo($tweet);
       $message.appendTo($tweet);
       $timestamp.appendTo($tweet);
-      $comment.appendTo($tweet);
-      $retweet.appendTo($tweet);
-      $like.appendTo($tweet);
-      $share.appendTo($tweet);
+      $icon.appendTo($tweet);
 
       //if user input
       if (user === tweet.user) {
