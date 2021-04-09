@@ -22,12 +22,25 @@ $(document).ready(function(){
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       // $tweet.appendTo($feed);
 
+      // create new HTML elements within Tweet
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/mracus.png"></img>');
-      $profilePhoto.appendTo($tweet);
       var $username = $('<span class="username"> @' + tweet.user + '</span>');
-      $username.appendTo($tweet);
       var $message = $('<p class ="message">' + tweet.message + '</p>');
+      var $timestamp = $('<span class="timestamp">timestamp</span>');
+      var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png"></img>');
+      var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png"></img>');
+      var $like = $('<img class="icon like" src="assets/icons/placeholder.png"></img>');
+      var $share = $('<img class="icon share" src="assets/icons/placeholder.png"></img>');
+
+      // Append new HTML elements within Tweet
+      $profilePhoto.appendTo($tweet);
+      $username.appendTo($tweet);
       $message.appendTo($tweet);
+      $timestamp.appendTo($tweet);
+      $comment.appendTo($tweet);
+      $retweet.appendTo($tweet);
+      $like.appendTo($tweet);
+      $share.appendTo($tweet);
 
       $tweet.appendTo($feed);
       index -= 1;
@@ -58,12 +71,10 @@ $(document).ready(function(){
   <span class="username"></span>
   <p class ="message"></p>
   <span class="timestamp"></span>
-  <div class="icon">
-    <img class="icon comment" src="assets/icons/placeholder.png"></img>
-    <img class="icon retweet" src="assets/icons/placeholder.png"></img>
-    <img class="icon like" src="assets/icons/placeholder.png"></img>
-    <img class="icon share" src="assets/icons/placeholder.png"></img>
-  </div>
+  <img class="icon comment" src="assets/icons/placeholder.png"></img>
+  <img class="icon retweet" src="assets/icons/placeholder.png"></img>
+  <img class="icon like" src="assets/icons/placeholder.png"></img>
+  <img class="icon share" src="assets/icons/placeholder.png"></img>
 
 
 </div> */
