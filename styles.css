@@ -16,3 +16,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 h1 {
   color: aquamarine;
 }
+
+.fas:hover {
+  color: red;
+}
