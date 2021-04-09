@@ -23,10 +23,10 @@ $(document).ready(function(){
       // $tweet.appendTo($feed);
 
       // create new HTML elements within Tweet
-      var $profilePhoto = $('<img class="profile-photo" src="assets/img/mracus.png"></img>');
+      var $profilePhoto = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png"></img>');
       var $username = $('<span class="username"> @' + tweet.user + '</span>');
       var $message = $('<p class ="message">' + tweet.message + '</p>');
-      var $timestamp = $('<span class="timestamp">timestamp</span>');
+      var $timestamp = $('<span class="timestamp">' + tweet.created_at + '</span>');
       var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png"></img>');
       var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png"></img>');
       var $like = $('<img class="icon like" src="assets/icons/placeholder.png"></img>');
