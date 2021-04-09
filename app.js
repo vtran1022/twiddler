@@ -35,6 +35,16 @@ $(document).ready(function(){
     renderFeed(userText);
   }
 
+  // Set event listeners (providing appropriate handlers as input)
+  $title.on('click', handleTitleClick);
+  $updateButton.on('click', handleButtonClick);
+
+    // Append new HTML elements to the DOM
+  $title.appendTo($app);
+  $updateButton.appendTo($app);
+  $feed.appendTo($app);
+
+  // twitter div and renderFeed function
   var renderFeed = function (user) {
     var index = streams.home.length - 1;
 
@@ -80,31 +90,4 @@ $(document).ready(function(){
   };
   renderFeed();
 
-  // Set event listeners (providing appropriate handlers as input)
-  $title.on('click', handleTitleClick);
-  $updateButton.on('click', handleButtonClick);
-
-  // Append new HTML elements to the DOM
-  $title.appendTo($app);
-  $updateButton.appendTo($app);
-  $feed.appendTo($app);
-
 });
-
-/* <div class="tweet">
-
-  <img class="profile-photo" src="assets/img/'username'.png"></img>
-  <span class="username"></span>
-  <p class ="message"></p>
-  <span class="timestamp"></span>
-  <img class="icon comment" src="assets/icons/placeholder.png"></img>
-  <img class="icon retweet" src="assets/icons/placeholder.png"></img>
-  <img class="icon like" src="assets/icons/placeholder.png"></img>
-  <img class="icon share" src="assets/icons/placeholder.png"></img>
-
-
-</div> */
-
-// $username.on('click', function () {
-//   $feed.filter($username);
-// });
