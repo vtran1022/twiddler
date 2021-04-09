@@ -13,13 +13,13 @@ $(document).ready(function(){
   $updateButton.appendTo($app);
   $updateButton.on("click", function(event) {
     $feed.empty();
-    feedRunner();
+    renderFeed();
   });
 
   var $feed = $('<div id="feed"></div>');
   $feed.appendTo($app);
 
-  var feedRunner = function () {
+  var renderFeed = function () {
      var index = streams.home.length - 1;
     while(index >= 0) {
       var tweet = streams.home[index];
@@ -30,6 +30,6 @@ $(document).ready(function(){
    }
   };
 
-  feedRunner();
+  renderFeed();
 });
 
