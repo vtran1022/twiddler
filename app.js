@@ -14,6 +14,10 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   }
 
+
+
+
+
   var renderFeed = function () {
     var index = streams.home.length - 1;
     while(index >= 0) {
@@ -26,7 +30,9 @@ $(document).ready(function(){
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png"></img>');
       var $username = $('<span class="username"> @' + tweet.user + '</span>');
       var $message = $('<p class ="message">' + tweet.message + '</p>');
-      var $timestamp = $('<span class="timestamp">' + tweet.created_at + '</span>');
+      var time = jQuery.timeago(tweet.created_at);
+      var $timestamp = $('<span class="timestamp">' + time + '</span>');
+
       var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png"></img>');
       var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png"></img>');
       var $like = $('<img class="icon like" src="assets/icons/placeholder.png"></img>');
@@ -47,7 +53,7 @@ $(document).ready(function(){
     }
 
   };
- renderFeed();
+  renderFeed();
 
   // Set event listeners (providing appropriate handlers as input)
   $title.on('click', handleTitleClick);
@@ -60,8 +66,6 @@ $(document).ready(function(){
   $title.appendTo($app);
   $updateButton.appendTo($app);
   $feed.appendTo($app);
-
-
 
 });
 
