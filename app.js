@@ -13,17 +13,17 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   }
 
-  var renderFeed = function () {
+  var renderFeed = function (user) {
     var index = streams.home.length - 1;
+
     while(index >= 0) {
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
-      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      // $tweet.appendTo($feed);
 
       // create new HTML elements within Tweet div
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png"></img>');
       var $username = $('<span class="username"> @' + tweet.user + '</span>');
+
       var $message = $('<p class ="message">' + tweet.message + '</p>');
       var time = jQuery.timeago(tweet.created_at);
       var $timestamp = $('<span class="timestamp">' + time + '</span>');
@@ -43,16 +43,20 @@ $(document).ready(function(){
       $like.appendTo($tweet);
       $share.appendTo($tweet);
 
-      $tweet.appendTo($feed);
+      if (user === tweet.user) {
+        $tweet.appendTo($feed);
+      } else if (user === undefined) {
+        $tweet.appendTo($feed);
+      }
+
       index -= 1;
     }
-
   };
   renderFeed();
 
   // Set event listeners (providing appropriate handlers as input)
   $title.on('click', handleTitleClick);
-  $updateButton.on("click", function() {
+  $updateButton.on('click', function() {
     $feed.empty();
     renderFeed();
   });
@@ -77,3 +81,7 @@ $(document).ready(function(){
 
 
 </div> */
+
+// $username.on('click', function () {
+//   $feed.filter($username);
+// });
