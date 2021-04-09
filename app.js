@@ -13,6 +13,28 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   }
 
+  var handleButtonClick = function(event) {
+    var element = document.getElementById("update-feed");
+    if (element.innerText="Back") {
+      element.innerText="Update Feed";
+    }
+    $feed.empty();
+    renderFeed();
+  }
+
+  var handleUsernameClick = function(event) {
+    var element = document.getElementById("update-feed");
+    if (element.innerText === "Update Feed") {
+      element.innerText="Back";
+    }
+
+    // Re-renders the Feed with only the clicked user's Tweets.
+    var clickElementText = event.target.innerText;
+    var userText = clickElementText.slice(2);
+    $feed.empty();
+    renderFeed(userText);
+  }
+
   var renderFeed = function (user) {
     var index = streams.home.length - 1;
 
@@ -43,11 +65,15 @@ $(document).ready(function(){
       $like.appendTo($tweet);
       $share.appendTo($tweet);
 
+      //if user input
       if (user === tweet.user) {
         $tweet.appendTo($feed);
       } else if (user === undefined) {
         $tweet.appendTo($feed);
       }
+
+      // Set event listeners
+      $username.on('click', handleUsernameClick);
 
       index -= 1;
     }
@@ -56,10 +82,7 @@ $(document).ready(function(){
 
   // Set event listeners (providing appropriate handlers as input)
   $title.on('click', handleTitleClick);
-  $updateButton.on('click', function() {
-    $feed.empty();
-    renderFeed();
-  });
+  $updateButton.on('click', handleButtonClick);
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
