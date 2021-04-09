@@ -34,8 +34,8 @@ $(document).ready(function(){
       var $timestamp = $('<span class="timestamp">' + time + '</span>');
 
       var $comment = $('<i class="icon comment fas fa-comment-dots"></i>');
-      var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png"></img>');
-      var $like = $('<img class="icon like" src="assets/icons/placeholder.png"></img>');
+      var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
+      var $like = $('<i class="icon like fas fa-heart"></i>');
       var $share = $('<img class="icon share" src="assets/icons/placeholder.png"></img>');
 
       // Append new HTML elements within Tweet
