@@ -33,7 +33,7 @@ $(document).ready(function(){
       var time = jQuery.timeago(tweet.created_at);
       var $timestamp = $('<span class="timestamp">' + time + '</span>');
 
-      var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png"></img>');
+      var $comment = $('<i class="icon comment fas fa-comment-dots"></i>');
       var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png"></img>');
       var $like = $('<img class="icon like" src="assets/icons/placeholder.png"></img>');
       var $share = $('<img class="icon share" src="assets/icons/placeholder.png"></img>');
