@@ -4,7 +4,9 @@ $(document).ready(function(){
   $app.html('');
 
   // Create new HTML elements
-  var $title = $('<h1>Twiddler</h1>');
+  var $header = $('<div class="header"></div>');
+  var $title = $('<h1>Tweeddler</h1>');
+  var $caption = $('<h5>"Where the tweeds aren\'t fabric"</h5>');
   var $updateButton = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
 
@@ -30,7 +32,9 @@ $(document).ready(function(){
 
     // Re-renders the Feed with only the clicked user's Tweets.
     var clickElementText = event.target.innerText;
-    var userText = clickElementText.slice(2);
+    console.log(clickElementText);
+    var userText = clickElementText.slice(1);
+    console.log(userText);
     $feed.empty();
     renderFeed(userText);
   }
@@ -40,8 +44,10 @@ $(document).ready(function(){
   $updateButton.on('click', handleButtonClick);
 
     // Append new HTML elements to the DOM
-  $title.appendTo($app);
-  $updateButton.appendTo($app);
+  $header.appendTo($app);
+  $title.appendTo($header);
+  $caption.appendTo($header);
+  $updateButton.appendTo($header);
   $feed.appendTo($app);
 
   // twitter div and renderFeed function
